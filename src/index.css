@@ -211,6 +211,25 @@ h1 { font-size: 2.25rem; }
 .pizza-card h3 { margin: 0; }
 .pizza-image { width: 100%; max-width: 180px; height: auto; }
 
+/* Not found */
+.not-found {
+  text-align: center;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.not-found-title {
+  font-size: clamp(2.5rem, 10vw, 5rem);
+  font-weight: 800;
+  color: var(--red);
+  margin: 0;
+}
+
+.not-found-message { font-size: 1.25rem; margin: 0; }
+
 @media (max-width: 560px) {
   .cart-row { grid-template-columns: 1fr auto; }
   .cart-line-price { text-align: left; }
