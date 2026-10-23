@@ -1,6 +1,6 @@
 # Al's Pizza
 
-This is a project for a course for learning Claude Code.
+_This is a project for a course for learning Claude Code._
 
 Demo website for the pizzeria Al's Pizza, built with React 19, TypeScript, Vite and React Router.
 
