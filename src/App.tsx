@@ -9,7 +9,7 @@ import { OrderPage } from './pages/OrderPage';
 function App() {
   return (
     <CartProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<HomePage />} />
