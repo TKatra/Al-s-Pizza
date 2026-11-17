@@ -1,3 +1,4 @@
+import { MAX_QUANTITY_PER_PIZZA } from '../cart/cartContext';
 import { useCart } from '../cart/useCart';
 import { PizzaImage } from '../components/PizzaImage';
 import { formatPrice, pizzas } from '../data/pizzas';
@@ -32,6 +33,7 @@ function Cart() {
                     <button
                       type="button"
                       onClick={() => setQuantity(pizza.id, quantity + 1)}
+                      disabled={quantity >= MAX_QUANTITY_PER_PIZZA}
                       aria-label={`Add one ${pizza.name}`}
                     >
                       +
@@ -60,22 +62,30 @@ function Cart() {
 }
 
 export function OrderPage() {
-  const { addPizza } = useCart();
+  const { items, addPizza } = useCart();
 
   return (
     <div>
       <h1>Order online</h1>
       <Cart />
       <div className="pizza-grid">
-        {pizzas.map((pizza) => (
-          <article key={pizza.id} className="pizza-card">
-            <PizzaImage pizza={pizza} />
-            <h3>{pizza.name}</h3>
-            <button type="button" className="button" onClick={() => addPizza(pizza.id)}>
-              Add to cart
-            </button>
-          </article>
-        ))}
+        {pizzas.map((pizza) => {
+          const atMax = (items[pizza.id] ?? 0) >= MAX_QUANTITY_PER_PIZZA;
+          return (
+            <article key={pizza.id} className="pizza-card">
+              <PizzaImage pizza={pizza} />
+              <h3>{pizza.name}</h3>
+              <button
+                type="button"
+                className="button"
+                onClick={() => addPizza(pizza.id)}
+                disabled={atMax}
+              >
+                {atMax ? `Max ${MAX_QUANTITY_PER_PIZZA} per order` : 'Add to cart'}
+              </button>
+            </article>
+          );
+        })}
       </div>
     </div>
   );

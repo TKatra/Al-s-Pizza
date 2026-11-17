@@ -126,6 +126,7 @@ h1 { font-size: 2.25rem; }
 .button:hover { background: var(--red-dark); }
 .button-secondary { background: #fff; color: var(--red); border: 2px solid var(--red); }
 .button-secondary:hover { background: var(--cream); }
+.button:disabled { background: var(--muted); cursor: not-allowed; }
 
 /* Home */
 .hero {
@@ -179,6 +180,7 @@ h1 { font-size: 2.25rem; }
   cursor: pointer;
 }
 .quantity button:hover { background: #f3e6d2; }
+.quantity button:disabled { opacity: 0.4; cursor: not-allowed; background: var(--cream); }
 .quantity-value { min-width: 1.5rem; text-align: center; font-weight: 600; }
 
 .cart-remove {

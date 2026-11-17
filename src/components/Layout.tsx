@@ -8,8 +8,7 @@ const links = [
 ];
 
 export function Layout() {
-  const { items } = useCart();
-  const cartCount = Object.values(items).reduce((sum, qty) => sum + qty, 0);
+  const { totalCount: cartCount } = useCart();
 
   return (
     <>
